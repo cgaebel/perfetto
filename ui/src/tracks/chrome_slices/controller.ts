@@ -58,13 +58,8 @@ class ChromeSliceTrackController extends TrackController<Config, Data> {
     // Buckets are always even and positive, don't quantize once we zoom to
     // nanosecond-scale, so that we can see exact sizes.
     let tsq = `ts`;
-<<<<<<< HEAD
-    if (bucketNs > MIN_QUANT_NS) {
-=======
     // the lowest bucketNs gets is 2, but add some room in case of fp error
-    const minQuantNs = 3;
-    if (bucketNs > minQuantNs) {
->>>>>>> 312df70a1 ([ui] Support nanosecond-scale zoom levels)
+    if (bucketNs > MIN_QUANT_NS) {
       tsq = `(ts + ${bucketNs / 2}) / ${bucketNs} * ${bucketNs}`;
     }
 
